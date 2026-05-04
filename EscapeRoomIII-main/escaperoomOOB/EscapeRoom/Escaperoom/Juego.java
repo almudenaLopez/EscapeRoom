@@ -50,12 +50,28 @@ public class Juego {
 
             if (!opcion.equals("salir")) {
                 try {
+                    if(opcion.equals("volver")){
+                        String anterior=jugador.volverAtras();
+                        if(anterior!=null){
+                            System.out.println("Vuelves a :"+anterior);
+                            PruebaAbstracta pa= habitaciones.get(anterior);
+                            if(pa!=null){
+                                pa.resolver(jugador);
+                            }
+                        }else{
+                            System.out.println("no hay historial");
+                        }
+                    }else{
+
+
+
                     PruebaAbstracta pa = habitaciones.get(opcion);
 
                     if (pa == null) {
                         //  excepción
                         throw new OpcionInvalidaException("La opcion" + opcion + " no es válida");
                     }
+                    jugador.registrarMonimiento(opcion);
 
 
                     boolean acierta = pa .resolver(jugador);
@@ -65,8 +81,9 @@ public class Juego {
                     } else {
                         System.out.println("Oh no pirata como es posible?");
                     }
+                    }
 
-                    // Comprobación de estado de juego
+
                     if (jugador.getVidas() <= 0) {
                         System.out.println("Te has quedado sin vidas Pirata, ya no podras salir de la Perla Negra");
                         break;
