@@ -1,12 +1,18 @@
 package Escaperoom;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+
 public class Jugador {
 private int vidas;
     private int nivel;
+    private Deque<String> historial;
 
     public Jugador() {
         this.vidas = 7;
         this.nivel = 1;
+        historial = new ArrayDeque<>();
+
     }
 
     public int getVidas() {
@@ -25,5 +31,14 @@ private int vidas;
     public void subirNivel() {
         nivel++;
     }
+    public void registrarMovimiento(String habitacion) {
+        historial.push(habitacion);
+    }
 
+    public String volverAtras() {
+        if (!historial.isEmpty()) {
+            return historial.pop();
+        }
+        return null;
+    }
 }
