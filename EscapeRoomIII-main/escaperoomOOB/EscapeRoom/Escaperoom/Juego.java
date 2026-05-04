@@ -71,7 +71,7 @@ public class Juego {
                         //  excepción
                         throw new OpcionInvalidaException("La opcion" + opcion + " no es válida");
                     }
-                    jugador.registrarMonimiento(opcion);
+                    jugador.registrarMovimiento(opcion);
 
 
                     boolean acierta = pa .resolver(jugador);
