@@ -8,6 +8,9 @@ public class Pasillo extends PruebaAbstracta {
 
     @Override
     public boolean resolver(Jugador jugador) {
+        System.out.println("Has encontrado un mapa pirata");
+
+        jugador.añadirObjeto("mapa");
 
         System.out.print("¿Qué soy? (Con X señalo donde excavar): ");
         String respuesta = entrada.nextLine();

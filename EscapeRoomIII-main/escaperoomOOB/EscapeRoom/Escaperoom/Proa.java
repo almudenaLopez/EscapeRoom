@@ -7,6 +7,13 @@ public class Proa extends PruebaAbstracta {
 
    @Override
     public boolean resolver(Jugador jugador) {
+
+       if (!jugador.tieneObjeto("espada")) {
+
+           System.out.println("Necesitas la espada");
+
+           return false;
+       }
         System.out.println("Encuentra las 4 palabras ocultas.");
         System.out.println("No avanzarás a la siguiente hasta que aciertes la actual.");
 
@@ -41,8 +48,10 @@ public class Proa extends PruebaAbstracta {
             }
         }
 
-        System.out.println("Has conseguido el timón.");
         System.out.println("¡Zarpa antes de que llegue el Kraken!");
+       jugador.añadirObjeto("timon");
+
+       System.out.println("Has conseguido el timon");
         return true;
     }
 }

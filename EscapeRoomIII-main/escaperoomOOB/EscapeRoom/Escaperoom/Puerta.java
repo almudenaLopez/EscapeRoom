@@ -7,6 +7,14 @@ public Puerta(java.util.Scanner entrada) {
     }
 @Override
     public boolean resolver(Jugador jugador) {
+    System.out.println("La puerta principal está cerrada");
+
+    if (!jugador.tieneObjeto("llave_calabozo")) {
+
+        System.out.println("Necesitas la llave del calabozo");
+
+        return false;
+    }
         System.out.println("Necesitas recuperar tu espada.");
         System.out.println("Debes acertar estas 3 operaciones (no pasarás a la siguiente hasta que aciertes).");
 
@@ -50,7 +58,11 @@ public Puerta(java.util.Scanner entrada) {
             }
         }
 
-        System.out.println("¡Has acertado todas y recuperado la espada!");
+
+        System.out.println("¡Has acertado todas!");
+    jugador.añadirObjeto("espada");
+
+    System.out.println("Has conseguido la espada ");
         return true;
     }
 }
