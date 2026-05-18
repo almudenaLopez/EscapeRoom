@@ -32,7 +32,10 @@ public class Escaleras extends PruebaAbstracta {
                 mostrarTablero(tablero);
 
                 if (turnoJugador) {
-                    System.out.println("Has ganado! Tienes la brújula");
+                    System.out.println("Has ganado!");
+                    jugador.añadirObjeto("brujula");
+
+                    System.out.println("Has conseguido la brujula");
                     return true;
                 } else {
                     System.out.println("Has perdido!");

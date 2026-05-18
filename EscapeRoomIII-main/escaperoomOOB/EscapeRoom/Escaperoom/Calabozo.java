@@ -20,6 +20,7 @@ public class Calabozo extends PruebaAbstracta {
             entrada.nextLine();
 
             if (intento == codigo) {
+                jugador.añadirObjeto("llave_calabozo");
                 System.out.println("Correcto! Has conseguido las llaves");
                 return true;
             }
